@@ -1,0 +1,42 @@
+Steps for classification:
+1. *Create the dataframe properly-->pd.read_csv(),pd.read_excel()
+2. Preprocessing the data:
+a. Feature selection-->domain knowledge-->drop()
+b. *Handling missing values-->df.isnull().sum(),dropna(),fillna()
+c. Outlier handling[Optional]-->boxplot()
+3. *Converting categorical data to numerical-->map(),pd.get_dummies(),OneHotEncoder(),LabelEncoder()
+4. *Create X and Y-->X=df.values[:,:-1], Y=df.values[:,-1]
+5. Scaling the data[Optional]-->StandardScaler(),MinMaxScaler()
+6. *Splitting the data into train and test(validation)-->train_test_split()
+7. *Building the model:
+a. Create the model-->obj=AlgoName()
+b. Train the model-->obj.fit(X_train, Y_train)
+c. Predict using the model-->Y_pred=obj.predict(X_test)
+8. *Evaluating the model:
+a. confusion_matrix(Y_test,Y_pred)
+b. accuracy_score(Y_test,Y_pred)
+c. classification_report(Y_test,Y_pred)
+9. *Tuning the model:
+a. Feature selection
+b. Dedicated approach-->Adjustment of threshold
+c. Stochastic Gradient Descent
+ 
+ 
+-----------------------------
+ 
+Model is ready--classifier-->adult_data.csv
+ 
+Follow the steps on the adult_test.csv:
+1. Create a dataframe properly-->adult_test
+2. Preprocessing the data:
+a. Feature selection-->eliminate fnlwgt,education
+b. Handling the missing values
+3. Converting categorical values to numerical
+4. Create X_test_new and Y_test_new
+5. Scaling the data-->X_test_new-->X_test_new=scaler.transform(X_test_new),fit() not to be implemented
+6. Y_pred_prob=classifier.predict_proba(X_test_new)
+7. Use the if-else code with threshold=0.46(optimum) and generate Y_pred_new
+8. Evaluating the model:
+a. confusion_matrix(Y_test_new,Y_pred_new)
+b. accuracy_score(Y_test_new,Y_pred_new)
+c. classification_report(Y_test_new,Y_pred_new)
